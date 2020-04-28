@@ -1,0 +1,1 @@
+In this project REST API are created with couchbase and nextjs. Typescript is used.
