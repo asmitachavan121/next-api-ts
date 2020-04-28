@@ -1,0 +1,7 @@
+{
+    "testEnvironment":"node",
+    "testPathIgnorePatterns":[
+        "./trial.test.js",
+        "./next-standard-api/pages/api/__tests__/"
+    ]
+}
