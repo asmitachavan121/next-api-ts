@@ -48,7 +48,7 @@ describe('posting data' ,() => {
         try{
             const res = await fetch('http://localhost:3000/api/post')
 
-            expect(res.status).toBe(200)
+            expect(res.status).toBe(405)
 
         } catch(e) {
             console.log(e)
@@ -57,7 +57,7 @@ describe('posting data' ,() => {
 })
 
 describe('updating data' ,() => {
-    it('This should update the data', async () => {
+    it('This should update the data with response status 200', async () => {
         expect.assertions(1)
         try{
             const res = await fetch('http://localhost:3000/api/patch?id=1', {
@@ -73,20 +73,34 @@ describe('updating data' ,() => {
             console.log(e)
         }
     })
+
+    it('This should update the data with response status 405', async () => {
+        expect.assertions(1)
+        try{
+            const res = await fetch('http://localhost:3000/api/patch?id=1', {
+                method:'post',
+                body: JSON.stringify({
+                    "title":"updated using fetch test"
+                })
+            })
+
+            expect(res.status).toBe(405)
+
+        } catch(e) {
+            console.log(e)
+        }
+    })
 })
 
 describe('deleting data' ,() => {
-    it('This should delete the data', async () => {
+    it('This should send response status 400', async () => {
         expect.assertions(1)
         try{
             const res = await fetch('http://localhost:3000/api/delete', {
                 method:'delete'
-                // body: JSON.stringify({
-                //     "title":"updated using fetch test"
-                // })
             })
 
-            expect(res.status).toBe(404)
+            expect(res.status).toBe(400)
 
         } catch(e) {
             console.log(e)
