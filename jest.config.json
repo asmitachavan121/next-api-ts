@@ -2,6 +2,7 @@
     "testEnvironment":"node",
     "testPathIgnorePatterns":[
         "./trial.test.js",
-        "./next-standard-api/pages/api/__tests__/"
+        "./.next",
+        "./pages/api/__tests__/home.test.js"
     ]
 }

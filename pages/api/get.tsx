@@ -1,7 +1,6 @@
 import {NextApiRequest, NextApiResponse } from 'next'
 import Couchbase from 'couchbase'
-
-export default async (request: NextApiRequest, response: NextApiResponse) => {
+const getHandler =  async  (request: NextApiRequest, response: NextApiResponse) => {
 
     const cluster = new Couchbase.Cluster("http://localhost:8091",{username:'Administrator', password:'password'})
     var bucket = cluster.bucket('default')
@@ -23,10 +22,11 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
         var result = await collection.get(id)
         response.send(result.value)
     }catch(e){
-        if(e.cause.code == 301) {
-            return response.status(404).send(e.message)
-        }
+        // if(e.cause.code == 301) {
+        //     return response.status(404).send(e.message)
+        // }
         response.status(500).send(e)
     }
         
 }
+export default getHandler

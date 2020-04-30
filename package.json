@@ -14,16 +14,22 @@
   "license": "ISC",
   "dependencies": {
     "couchbase": "^3.0.1",
+    "isomorphic-fetch": "^2.2.1",
     "next": "^9.3.5",
+    "node-fetch": "^2.6.0",
     "random-number": "0.0.9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "uuid": "^7.0.3"
   },
   "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.4",
     "@types/react": "^16.9.34",
     "jest": "^25.4.0",
     "supertest": "^4.0.2",
+    "test-listen": "^1.1.0",
+    "ts-jest": "^25.4.0",
     "typescript": "^3.8.3"
   }
 }
